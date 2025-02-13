@@ -38,37 +38,41 @@ def getReportType(name):
 
 
 
-inbound_metric, inbound_tourism_transport = getReportType('Inbound Tourism-Transport')
-fig_inbound_tourism_transport = px.bar(
-    inbound_tourism_transport, x="Year", y="Total_Count", color="Metric",
-    title="Inbound Tourism-Transport in Indonesia",
-    labels={"Total_Count": "Total Count", "Year": "Year", "Metric": "Metric"})
-fig_inbound_tourism_transport.update_layout(width=1000, height=400, legend_orientation="h", legend_y=-0.3)
-st.plotly_chart(fig_inbound_tourism_transport, use_container_width=True)
+col1, col2 = st.columns(2)
 
-domestic_tourism_trips_metric, domestic_tourism_trips = getReportType('Domestic Tourism-Trips')
-fig_domestic_tourism_trips = px.line(
-    domestic_tourism_trips, x="Year", y="Total_Count", color="Metric",
-    title="Domestic Tourism-Trips in Indonesia",
-    labels={"Total_Count": "Total Count", "Year": "Year", "Metric": "Metric"})
-fig_domestic_tourism_trips.update_layout(width=1000, height=400, legend_orientation="h", legend_y=-0.3)
-st.plotly_chart(fig_domestic_tourism_trips, use_container_width=True)
+with col1:
+    inbound_metric, inbound_tourism_transport = getReportType('Inbound Tourism-Transport')
+    fig_inbound_tourism_transport = px.bar(
+        inbound_tourism_transport, x="Year", y="Total_Count", color="Metric",
+        title="Inbound Tourism-Transport in Indonesia",
+        labels={"Total_Count": "Total Count", "Year": "Year", "Metric": "Metric"})
+    fig_inbound_tourism_transport.update_layout(width=500, height=400, legend_orientation="h", legend_y=-0.3)
+    st.plotly_chart(fig_inbound_tourism_transport, use_container_width=True)
 
-inbound_tourism_expenditure_metric, inbound_tourism_expenditure = getReportType('Inbound Tourism-Expenditure')
-fig_inbound_tourism_expenditure = px.line(
-    inbound_tourism_expenditure, x="Year", y="Total_Count", color="Metric",
-    title="Inbound Tourism-Expenditure in Indonesia",
-    labels={"Total_Count": "Total Count", "Year": "Year", "Metric": "Metric"})
-fig_inbound_tourism_expenditure.update_layout(width=1000, height=400, legend_orientation="h", legend_y=-0.3)
-st.plotly_chart(fig_inbound_tourism_expenditure, use_container_width=True)
+    domestic_tourism_trips_metric, domestic_tourism_trips = getReportType('Domestic Tourism-Trips')
+    fig_domestic_tourism_trips = px.line(
+        domestic_tourism_trips, x="Year", y="Total_Count", color="Metric",
+        title="Domestic Tourism-Trips in Indonesia",
+        labels={"Total_Count": "Total Count", "Year": "Year", "Metric": "Metric"})
+    fig_domestic_tourism_trips.update_layout(width=500, height=400, legend_orientation="h", legend_y=-0.3)
+    st.plotly_chart(fig_domestic_tourism_trips, use_container_width=True)
 
-outbound_tourism_expenditure_metric, outbound_tourism_expenditure = getReportType('Outbound Tourism-Expenditure')
-fig_outbound_tourism_expenditure = px.line(
-    outbound_tourism_expenditure, x="Year", y="Total_Count", color="Metric",
-    title="Outbound Tourism-Expenditure in Indonesia",
-    labels={"Total_Count": "Total Count", "Year": "Year", "Metric": "Metric"})
-fig_outbound_tourism_expenditure.update_layout(width=1000, height=400, legend_orientation="h", legend_y=-0.3)
-st.plotly_chart(fig_outbound_tourism_expenditure, use_container_width=True)
+with col2:
+    inbound_tourism_expenditure_metric, inbound_tourism_expenditure = getReportType('Inbound Tourism-Expenditure')
+    fig_inbound_tourism_expenditure = px.line(
+        inbound_tourism_expenditure, x="Year", y="Total_Count", color="Metric",
+        title="Inbound Tourism-Expenditure in Indonesia",
+        labels={"Total_Count": "Total Count", "Year": "Year", "Metric": "Metric"})
+    fig_inbound_tourism_expenditure.update_layout(width=500, height=400, legend_orientation="h", legend_y=-0.3)
+    st.plotly_chart(fig_inbound_tourism_expenditure, use_container_width=True)
+
+    outbound_tourism_expenditure_metric, outbound_tourism_expenditure = getReportType('Outbound Tourism-Expenditure')
+    fig_outbound_tourism_expenditure = px.line(
+        outbound_tourism_expenditure, x="Year", y="Total_Count", color="Metric",
+        title="Outbound Tourism-Expenditure in Indonesia",
+        labels={"Total_Count": "Total Count", "Year": "Year", "Metric": "Metric"})
+    fig_outbound_tourism_expenditure.update_layout(width=500, height=400, legend_orientation="h", legend_y=-0.3)
+    st.plotly_chart(fig_outbound_tourism_expenditure, use_container_width=True)
 
 employment_metric, employment = getReportType('Employment')
 fig_employment = px.bar(
